@@ -1,0 +1,47 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+	<!--<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"> -->
+	<title>WPR CPR</title>
+</head>
+<body>
+	<!--
+	<nav role="navigation">
+		<ul class="nav nav-tabs">
+		  <li role="presentation" class="active"><a href="#">Home</a></li>
+		  <li role="presentation"><a href="#">Profile</a></li>
+		  <li role="presentation"><a href="#">Messages</a></li>
+		</ul>	
+	</nav>
+ 	-->
+	<main class="container" role="main">
+		
+		<h1>WPR CPR <span>- Old Tests and WPRs, all in one place</span></h1>
+		<!-- Need the following a tag to go to the add_material page-->
+		<h2><a href="/add_material">Add study material</a>, or search for the class you want to study!</h2>
+		
+		<div class="row">
+			{% for class in classboxes %}
+			
+			<div class='col-md-2'>
+				<div class='panel panel-default'>
+					<div class="panel-heading">
+						<h4 align="center">{{ class.class_name }}</h4>
+					</div>
+					<div class="panel-body">
+						<table class="study-table">
+							<div class="col-md-12 text-center">
+								<a href={{ class.link }}><button type="button" class="btn btn-success">STUDY</button></a>
+							</div>
+						</table>
+					</div> 
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</main>
+</body>
+</html>

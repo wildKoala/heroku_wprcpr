@@ -1,0 +1,70 @@
+{% load staticfiles %}
+
+<!DOCTYPE HTML>
+<!--
+	CITATION:
+
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>WPR CPR</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'style.css' %}" />
+		<link rel="icon" href="{% static 'favicon.ico' %}">
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1>WPR CPR</h1>
+						<p>Study resources, all in one place</p>
+						
+						<!-- Citation: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_link_mailto taught me to do this -->
+						<p>To add your own WPRs and study guides for PMI, <a href="mailto:grayson.gordon@usma.edu?Subject=WPR%20CPR%20Upload%20Submission&body=Attach%20the%20file%20you%20want%20to%20upload%20to%20WPR%20CPR%20and%20type%20the%20class%20that%20it's%20for!%0A%0A">email grayson.gordon@usma.edu</a></p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<div class="row">
+							{% for class in classboxes %}
+			
+						<div class='col-md-3'>
+							<div class='panel panel-default'>
+								<div class="panel-heading">
+									<h4 align="center">{{ class.class_name }}</h4>
+								</div>
+									<div class="panel-body">
+										
+										<div class="col-md-12 text-center">
+											<a href={{ class.link }}><button type="button" class="btn btn-success">STUDY</button></a>
+										</div>
+										
+									</div> 
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+
+					</div>
+
+		<!-- Scripts -->
+			<script src={% static 'assets/js/jquery.min.js' %}></script>
+			<script src={% static 'assets/js/jquery.scrollex.min.js' %}></script>
+			<script src={% static 'assets/js/jquery.scrolly.min.js' %}></script>
+			<script src={% static 'assets/js/skel.min.js' %}></script>
+			<script src={% static 'assets/js/util.js' %}></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src={% static 'assets/js/main.js' %}></script>
+
+	</body>
+</html>
